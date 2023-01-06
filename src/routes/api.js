@@ -2,6 +2,8 @@
 const express = require('express')
 // import app modules 
 const userControllers = require('../controllers/user.controllers')
+const TaskController = require('../controllers/task.controllers')
+const verifyJwt = require('../middleware/verifyJwt')
 // setup routes 
 const router = express.Router()
 /* 
@@ -33,6 +35,11 @@ E.g request headers => {
 
 */
 router.post('/signin', userControllers.signin)
+
+// tasks crud 
+router.post('/task/save', verifyJwt, TaskController.createTask)
+
+
 
 
 
