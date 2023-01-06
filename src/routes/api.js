@@ -36,9 +36,14 @@ E.g request headers => {
 */
 router.post('/signin', userControllers.signin)
 
-// tasks crud 
+// tasks ===> crud 
+
+// create new task 
 router.post('/task/save', verifyJwt, TaskController.createTask)
 
+//view all task
+
+router.get('/task/all', verifyJwt, TaskController.viewAllTask)
 
 
 
