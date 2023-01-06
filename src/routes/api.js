@@ -47,8 +47,8 @@ router.get('/task/all', verifyJwt, TaskController.viewAllTask)
 
 // update task status 
 router.get('/task/:id/:status', verifyJwt, TaskController.updateTaskStatus)
-
-
+// delete single task by ID 
+router.delete('/task/:id', verifyJwt, TaskController.deleteTask)
 
 
 module.exports = router

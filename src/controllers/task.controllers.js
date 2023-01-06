@@ -54,3 +54,16 @@ exports.updateTaskStatus = async (req, res) => {
   }
 
 }
+
+// delete single task by ID 
+exports.deleteTask = async (req, res) => {
+  const { email } = req.headers
+  const { id } = req.params
+  try {
+    const data = await taskModel.deleteOne({ TaskCreatorId: email, _id: id })
+    res.status(200).json({ status: "success", data })
+  } catch (error) {
+    res.status(400).json({ status: "fail", message: error })
+  }
+
+}
