@@ -28,3 +28,48 @@ exports.signup = async (req, res) => {
     }
   }
 }
+
+/* 
+* signIn user ===> signIn 
+* Required ===> request headers
+* E.g request headers ===> {
+    email:user@email.com,
+    password:1234
+}
+* Success Response with token ===>   res.status(200).json({ status: "success", data: { ...data[0], token } })
+* Unauthorized Response ===>  res.status(401).json({ status: "unauthorized", message: "incorrect email or password" })
+* Error Response ===>  res.status(400).json({ status: "fail", massage: error })
+*/
+exports.signin = async (req, res) => {
+  const { email, password } = req.headers
+
+  try {
+    // db query for match user credentials 
+    const data = await userModel.aggregate([{ $match: { Email: email, Password: password } },
+    { $project: { _id: 0, Password: 0 } }
+    ])
+
+    // if query matched 
+    if (data.length) {
+      // generate a jwt access token for matched user 
+      const payload = {
+        exp: Math.floor(Date.now() / 1000) + (60 * 60),
+        data: data[0].Email
+      }
+      const secreteKey = process.env.APP_SECRETE_KEY
+      const token = await jwt.sign(payload, secreteKey)
+
+      res.status(200).json({ status: "success", data: { ...data[0], token } })
+    }
+    // if query not  matched 
+    else {
+      res.status(401).json({ status: "unauthorized", message: "incorrect email or password" })
+    }
+
+  }
+  // if there is ant server error
+  catch (error) {
+    res.status(400).json({ status: "fail", massage: error })
+  }
+
+}

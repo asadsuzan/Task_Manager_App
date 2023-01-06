@@ -18,4 +18,23 @@ E.g request body  => {
 */
 router.post('/signup', userControllers.signup)
 
+/* 
+Signin user 
+Method => POST
+Path => /signin
+Required => request headers 
+E.g request headers => {
+   email:user@email.com,
+    password:1234
+}
+* Success Response with token ===>   res.status(200).json({ status: "success", data: { ...data[0], token } })
+* Unauthorized Response ===>  res.status(401).json({ status: "unauthorized", message: "incorrect email or password" })
+* Error Response ===>  res.status(400).json({ status: "fail", massage: error })
+
+*/
+router.post('/signin', userControllers.signin)
+
+
+
+
 module.exports = router
