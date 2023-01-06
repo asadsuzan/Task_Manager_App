@@ -1,0 +1,20 @@
+
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+ @import url('../src/assets/css/master-layout/AppContainer.css');
+body {
+  margin: 0;
+  font-family:  'Roboto', sans-serif, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+/* @import url('./assets/css/Header.css');
+@import url('./assets/css/SideBar.css');
+@import url('./assets/css/Content.css'); */

@@ -1,0 +1,68 @@
+.side-nav-open {
+  height: calc(100vh - 50px);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  width: 300px;
+  transition: .3s ease;
+  overflow: hidden;
+  background-color: #fafafa;
+  transform: translateX(0);
+}
+
+.side-nav-close {
+  height: calc(100vh - 50px);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  width: 0px;
+  transition: .3s ease;
+  overflow: hidden;
+  background-color: #fafafa;
+  transform: translateX(-300px);
+}
+
+.aside {
+  gap: 10px;
+}
+
+.aside a {
+  text-decoration: none;
+  color: black;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  font-size: 14px;
+  position: relative;
+}
+
+.aside a svg {
+  margin-right: 5px;
+}
+
+.aside a:hover {
+  background-color: rgba(81, 70, 220, .1);
+}
+
+.aside a.active {
+  color: white;
+  background-color: rgba(81, 70, 220, .6);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+a::after {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background-color: rgba(81, 70, 220, .6);
+  transform: translateX(500px);
+  padding: 10px;
+  border-radius: 5px;
+  left: 0;
+  top: 0;
+  position: absolute;
+  transition: all .1s;
+
+}
+
+a:focus::after {
+  transform: translateX(0) !important;
+  transition: all .1s !important;
+}
