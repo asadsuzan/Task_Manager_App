@@ -45,6 +45,8 @@ router.post('/task/save', verifyJwt, TaskController.createTask)
 
 router.get('/task/all', verifyJwt, TaskController.viewAllTask)
 
+// update task status 
+router.get('/task/:id/:status', verifyJwt, TaskController.updateTaskStatus)
 
 
 

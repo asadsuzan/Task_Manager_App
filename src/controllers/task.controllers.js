@@ -25,7 +25,7 @@ exports.createTask = async (req, res) => {
 
 }
 
-// view task 
+// view all task 
 exports.viewAllTask = async (req, res) => {
   const { email } = req.headers
   try {
@@ -36,6 +36,19 @@ exports.viewAllTask = async (req, res) => {
     } else {
       res.status(200).json({ status: "success", data: "no task yet" })
     }
+  } catch (error) {
+    res.status(400).json({ status: "fail", massage: error })
+  }
+
+}
+
+// update task status 
+exports.updateTaskStatus = async (req, res) => {
+  const { email } = req.headers
+  const { id, status } = req.params
+  try {
+    const data = await taskModel.updateOne({ TaskCreatorId: email, _id: id, IsTaskCompleted: status, CompletedDate: status == 'true' ? Date.now() : null })
+    res.status(200).json({ status: "success", data })
   } catch (error) {
     res.status(400).json({ status: "fail", massage: error })
   }
