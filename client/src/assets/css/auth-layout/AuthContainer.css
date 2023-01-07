@@ -1,0 +1,123 @@
+.auth-container {
+  padding: 0 2rem;
+  background-image: url('../../images/login__bg.8e44616319b55ac1.svg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  min-height: calc(100vh);
+}
+
+.auth-container .auth-header {
+  height: 100px;
+  width: 100%;
+}
+
+.auth-container .auth-header img {
+  height: 50px;
+  width: 50px;
+
+}
+
+.auth-header .left-side span {
+  font-size: 22px;
+  font-weight: 500;
+  color: whitesmoke;
+  margin: 0 1rem;
+}
+
+.auth-header .right-side span {
+  font-size: 15px;
+  margin: 0 1rem;
+  color: whitesmoke;
+}
+
+.auth-container .auth-body {
+  min-height: calc(100vh - 100px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.auth-body .auth-form {
+  width: 500px;
+  height: 100%;
+  padding-bottom: 2rem;
+  background-color: whitesmoke;
+  box-shadow: 0 24px 64px #26214a1a;
+  border-radius: 20px;
+
+}
+
+
+
+
+.auth-form .form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.auth-form .form .form-group {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.auth-form .form .form-group label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #2a2e34;
+
+}
+
+.form .form-group .form-input {
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #bdbdbd;
+  border-radius: 10px;
+  background-color: white;
+  padding: 0 10px;
+  height: 40px;
+
+}
+
+.form .form-group .form-input:hover {
+  border: 1px solid #9b9b9b;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.form .form-group .form-input input {
+  /* padding: 7px 0; */
+  border-radius: 0 10px 10PX 0;
+  height: 100%;
+  /* margin-bottom: 10px; */
+  font-size: 13px;
+  font-weight: 500;
+  color: #2a2e34;
+  width: 100%;
+  border: 0;
+  outline: 0;
+
+
+}
+
+
+.form .form-group .form-input span {
+  background-color: white;
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+  color: #2a2e34;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+}
+
+.form .form-group button {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
+  border-radius: 10px;
+  margin: 1rem 0;
+}

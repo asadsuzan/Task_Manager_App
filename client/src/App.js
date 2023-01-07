@@ -3,7 +3,9 @@ import CompletedPage from "./pages/CompletedPage";
 import DashboardPage from "./pages/DashboardPage";
 import ImportantPage from "./pages/ImportantPage";
 import InprogressPage from "./pages/InprogressPage";
+import LoginPage from "./pages/LoginPage";
 import MyDayPage from "./pages/MyDayPage";
+import SignupPage from "./pages/SignupPage";
 import TaskPage from "./pages/TaskPage";
 
 
@@ -18,6 +20,8 @@ function App() {
         <Route path="/completed" element={<CompletedPage />} />
         <Route path="/tasks" element={<TaskPage />} />
         <Route path="/inprogress" element={<InprogressPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
       </Routes>
     </>
   );
