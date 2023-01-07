@@ -1,6 +1,6 @@
 .auth-container {
   padding: 0 2rem;
-  background-image: url('../../images/login__bg.8e44616319b55ac1.svg');
+  background-image: url("../../images/login__bg.8e44616319b55ac1.svg");
   background-size: cover;
   background-position: center;
   position: relative;
@@ -15,7 +15,6 @@
 .auth-container .auth-header img {
   height: 50px;
   width: 50px;
-
 }
 
 .auth-header .left-side span {
@@ -37,7 +36,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .auth-body .auth-form {
@@ -47,11 +45,7 @@
   background-color: whitesmoke;
   box-shadow: 0 24px 64px #26214a1a;
   border-radius: 20px;
-
 }
-
-
-
 
 .auth-form .form {
   width: 80%;
@@ -61,14 +55,12 @@
 .auth-form .form .form-group {
   display: flex;
   flex-direction: column;
-
 }
 
 .auth-form .form .form-group label {
   font-size: 13px;
   font-weight: 500;
   color: #2a2e34;
-
 }
 
 .form .form-group .form-input {
@@ -81,7 +73,6 @@
   background-color: white;
   padding: 0 10px;
   height: 40px;
-
 }
 
 .form .form-group .form-input:hover {
@@ -91,7 +82,7 @@
 
 .form .form-group .form-input input {
   /* padding: 7px 0; */
-  border-radius: 0 10px 10PX 0;
+  border-radius: 0 10px 10px 0;
   height: 100%;
   /* margin-bottom: 10px; */
   font-size: 13px;
@@ -100,10 +91,7 @@
   width: 100%;
   border: 0;
   outline: 0;
-
-
 }
-
 
 .form .form-group .form-input span {
   background-color: white;
