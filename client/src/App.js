@@ -1,4 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
+import FullScreenLoader from "./components/Loader/FullScreenLoader";
 import CompletedPage from "./pages/CompletedPage";
 import DashboardPage from "./pages/DashboardPage";
 import ImportantPage from "./pages/ImportantPage";
@@ -26,6 +27,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
         </Routes>
+        <FullScreenLoader />
       </>
     );
 
@@ -43,6 +45,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
         </Routes>
+        <FullScreenLoader />
       </>
     );
 
