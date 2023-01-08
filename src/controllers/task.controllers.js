@@ -41,6 +41,23 @@ exports.viewAllTask = async (req, res) => {
   }
 
 }
+// view  task by category
+exports.viewTaskByCat = async (req, res) => {
+  const { email } = req.headers
+  const category = req.params.category
+
+  try {
+    const data = await taskModel.find({ TaskCreatorId: email, TaskCategory: category, IsTaskCompleted: false, IsTaskImport: false })
+    if (data.length) {
+      res.status(200).json({ status: "success", data })
+    } else {
+      res.status(200).json({ status: "success", data: "no task yet" })
+    }
+  } catch (error) {
+    res.status(400).json({ status: "fail", massage: error })
+  }
+
+}
 
 // update task status 
 exports.updateTaskStatus = async (req, res) => {
