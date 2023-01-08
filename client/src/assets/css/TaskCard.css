@@ -1,0 +1,63 @@
+.task-card {
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  width: 400px;
+  height: 150px;
+}
+
+.task-content h5 {
+  text-transform: capitalize;
+  font-size: 18px;
+  color: #4d4da4;
+
+}
+
+.task-content p {
+  font-size: 15px;
+  text-align: justify;
+  color: #818976
+}
+
+.task-actions {
+  /* border: 1px solid blue; */
+  width: 100%;
+}
+
+
+
+.task-actions .left-side {
+  gap: 10px;
+}
+
+.task-actions .right-side {
+  gap: 10px;
+}
+
+.task-actions .right-side svg {
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.task-actions .left-side .due-date {
+  background-color: yellowgreen;
+  font-size: 13px;
+  padding: 1px 5px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.task-actions .left-side .category {
+  background-color: yellow;
+  font-size: 13px;
+  padding: 1px 5px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.task-actions input,
+select {
+  width: 20px;
+  margin: 5px;
+  /* border: 1px solid green; */
+  border: none;
+}
