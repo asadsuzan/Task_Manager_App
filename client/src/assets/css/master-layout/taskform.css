@@ -1,0 +1,86 @@
+.task-add-form {
+  height: 250px;
+  width: 500px;
+  position: fixed;
+  right: 50px;
+  bottom: 100px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.task-add-form-close {
+  height: 0;
+  width: 0;
+  background-color: whitesmoke;
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  border-radius: 10px;
+  overflow: hidden;
+
+
+}
+
+.task-form {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.task-form .from-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.task-form .from-group label {
+  font-size: 14px;
+}
+
+.task-form .from-group input {
+  border: 1px solid #958ee8;
+  outline: 0;
+  background-color: white;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+}
+
+.task-form .from-group input::placeholder {
+  font-size: 14px;
+}
+
+.task-form .task-category select {
+  width: 50%;
+  border-radius: 10px;
+  border: 1px solid #958ee8;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  outline: 0;
+  font-size: 14px;
+
+}
+
+.task-form .from-group input#task-note {
+
+  padding: 20px;
+}
+
+.task-form .from-group button {
+  background-color: #958ee8;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px !important;
+}
+
+.handle-task-form {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  border: none;
+  outline: none;
+  background-color: #958ee8;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px !important;
+  color: white;
+  padding: 2px 10px;
+  font-weight: 900;
+}

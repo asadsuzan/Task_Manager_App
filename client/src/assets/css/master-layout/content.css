@@ -3,6 +3,8 @@
   width: calc(100% - 300px);
   overflow-y: scroll;
   transition: all .3s ease;
+  position: relative;
+  background-color: whitesmoke;
 }
 
 .content-expends {
@@ -11,4 +13,6 @@
   overflow-y: scroll;
   padding: 0 10px;
   transition: all .3s ease;
+  position: relative;
+  background-color: whitesmoke;
 }

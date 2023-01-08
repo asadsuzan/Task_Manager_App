@@ -3,6 +3,8 @@ import { AiOutlineUser } from 'react-icons/ai'
 import { HiOutlineMail, HiOutlineLockOpen } from 'react-icons/hi'
 import { reqToSignup } from '../../Api/axios'
 import { useNavigate } from 'react-router-dom'
+import { Button } from '@mui/material'
+import { CiLogin } from 'react-icons/ci'
 
 const SignUpForm = () => {
   const navigate = useNavigate()
@@ -58,7 +60,10 @@ const SignUpForm = () => {
         </div>
       </div>
       <div className="form-group">
-        <button type='submit' className='btn btn-primary'>Sign up</button>
+        <Button type='submit' variant="contained" endIcon={<CiLogin />} >
+          Sign up
+        </Button>
+        
       </div>
     </form>
   )

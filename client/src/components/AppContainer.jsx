@@ -12,6 +12,7 @@ import {
 import { AiOutlineStar } from "react-icons/ai";
 import { BsListTask } from "react-icons/bs";
 import { FaRunning } from "react-icons/fa";
+import TaskAddForm from "./Forms/TaskAddForm";
 const AppContainer = (props) => {
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
   let sideBarRef = useRef();
@@ -53,16 +54,16 @@ const AppContainer = (props) => {
               <img src={search_btn} alt="search_btn" />
             </div>
           </div>
-                  {/* header  right side  */}
+          {/* header  right side  */}
           <div className="right-side flex-fill  d-flex justify-content-end">
             <div className="controllers text-end">
               <div className="img shadow-lg"></div>
             </div>
           </div>
         </header>
-   {/* app body  */}
+        {/* app body  */}
         <div className="app-body d-flex ">
-             {/* app body side nav */}
+          {/* app body side nav */}
           <div className="side-nav-open " ref={sideBarRef}>
             <aside className="aside d-flex px-2 me-1 mt-5 flex-column">
               <NavLink to={"/dashboard"}>
@@ -114,10 +115,15 @@ const AppContainer = (props) => {
               </NavLink>
             </aside>
           </div>
-  {/* app body content display here as child */}
+          {/* app body content display here as child */}
           <div className="content pt-5" ref={contentRef}>
- 
-            <div className="inner-content container">{props.children}</div>
+
+            <div className="inner-content container">
+              {props.children}
+
+            </div>
+            <TaskAddForm />
+
           </div>
         </div>
       </div>

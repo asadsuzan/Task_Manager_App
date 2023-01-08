@@ -1,4 +1,6 @@
+
 import axios from 'axios'
+import { getToken } from '../utility/localDb'
 
 const baseUrl = 'http://localhost:5000/api/v1/'
 
@@ -16,6 +18,7 @@ export const reqToSignup = (credentials) => {
       alert('Email already taken')
     } else {
       console.log(err);
+
     }
 
   })
@@ -39,3 +42,22 @@ export const reqToLogin = (credentials) => {
   })
 }
 
+export const reqToSaveTask = (task) => {
+  const url = baseUrl + '/task/save'
+  const config = {
+    headers: {
+      token: getToken()
+    }
+  };
+  return axios.post(url, task, config).then(res => {
+    if (res.status === 201) {
+      return true
+    } else {
+      return false
+    }
+  }).catch(err => {
+    alert(err)
+    console.log(err)
+  })
+
+}

@@ -8,7 +8,7 @@ const taskSchema = mongoose.Schema({
   },
   TaskNote: {
     type: String,
-    default: "s"
+    default: ""
   },
   TaskSteps: {
     type: Array,

@@ -1,4 +1,6 @@
+import { Button } from '@mui/material'
 import React from 'react'
+import { CiLogin } from 'react-icons/ci'
 import { HiOutlineLockOpen, HiOutlineMail } from 'react-icons/hi'
 import { reqToLogin } from '../../Api/axios'
 import { setToken } from '../../utility/localDb'
@@ -39,7 +41,9 @@ const LoginForm = () => {
         </div>
       </div>
       <div className="form-group">
-        <button type='submit' className='btn btn-primary'>Login</button>
+        <Button type='submit' variant="contained" endIcon={<CiLogin />} >
+          Login
+        </Button>
       </div>
     </form>
   )
