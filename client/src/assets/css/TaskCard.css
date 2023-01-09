@@ -72,3 +72,32 @@ select {
   /* border: 1px solid green; */
   border: none;
 }
+
+.status-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.status-icon::after {
+  content: '✔';
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+
+
+}
+
+.status-icon:hover svg {
+  opacity: 0;
+
+
+}
+
+.status-icon:hover:after {
+  opacity: 1;
+
+}

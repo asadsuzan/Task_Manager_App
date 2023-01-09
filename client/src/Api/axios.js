@@ -152,3 +152,27 @@ export const reqToViewCompleted = () => {
 
 
 }
+export const reqToDeleteTask = (id) => {
+  store.dispatch(displayLoader())
+  const url = baseUrl + `task/${id}`
+  const config = {
+    headers: {
+      token: getToken()
+    }
+  };
+  return axios.delete(url, config).then(res => {
+    store.dispatch(hideLoader())
+    if (res.status === 200) {
+      return true
+    } else {
+      alert('something went wrong')
+      return false
+    }
+  }).catch(err => {
+    store.dispatch(hideLoader())
+    alert(err)
+    console.log(err)
+  })
+
+
+}

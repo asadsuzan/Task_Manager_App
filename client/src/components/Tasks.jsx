@@ -6,7 +6,7 @@ import { BsPatchCheckFill } from 'react-icons/bs'
 
 
 
-const Tasks = ({ TaskName, TaskNote, TaskCategory, handleTaskStatus, _id, IsTaskCompleted }) => {
+const Tasks = ({ TaskName, TaskNote, TaskCategory, handleRemoveTask, handleTaskStatus, _id, IsTaskCompleted }) => {
 
   return (
     <div className='task-card p-3'>
@@ -31,16 +31,20 @@ const Tasks = ({ TaskName, TaskNote, TaskCategory, handleTaskStatus, _id, IsTask
           </div>
         </div>
         <div className="right-side d-flex align-items-center">
-          <div className="isCompleted" onClick={() => handleTaskStatus(_id)}>
-            {
-              IsTaskCompleted ? <BsPatchCheckFill size={'20px'} color="green" /> : <MdRadioButtonUnchecked size={'20px'} color="green" />
-            }
+          <div className="isCompleted" onClick={() => handleTaskStatus(_id)}
+
+          >
+            <span className='status-icon' >
+              {
+                IsTaskCompleted ? <BsPatchCheckFill size={'20px'} color="green" /> : <MdRadioButtonUnchecked size={'20px'} color="green" />
+              }
+            </span>
 
           </div>
           <div className='isImportant'>
             <AiOutlineStar size={'20px'} color="orange" />
           </div>
-          <div className='delete'>
+          <div className='delete' onClick={() => handleRemoveTask(_id)}>
             <TbTrash size={'20px'} color="red" />
           </div>
         </div>

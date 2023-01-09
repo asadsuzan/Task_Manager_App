@@ -47,7 +47,6 @@ router.get('/task/all', verifyJwt, TaskController.viewAllTask)
 router.get('/task/category/:category', verifyJwt, TaskController.viewTaskByCat)
 // view completed task  
 router.get('/task/completed', verifyJwt, TaskController.viewCompleted)
-
 // update task status 
 router.get('/task/:id/:status', verifyJwt, TaskController.updateTaskStatus)
 // delete single task by ID 

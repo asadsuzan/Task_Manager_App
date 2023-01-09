@@ -2,10 +2,14 @@ import React, { useEffect } from 'react'
 import AppContainer from '../components/AppContainer'
 import Tasks from '../components/Tasks'
 import { useSelector } from 'react-redux'
-import { reqToGetTaskByCate, reqToUpdateTaskStatus } from '../Api/axios'
+import { reqToDeleteTask, reqToGetTaskByCate, reqToUpdateTaskStatus } from '../Api/axios'
 
 const TaskPage = () => {
   const tasks = useSelector(state => state.tasks.new)
+
+  const handleRemoveTask = (id) => {
+    reqToDeleteTask(id).then(res => res && reqToGetTaskByCate('none'))
+  }
 
 
   const handleTaskStatus = (id) => {
@@ -18,6 +22,7 @@ const TaskPage = () => {
 
   useEffect(() => {
     reqToGetTaskByCate('none')
+
   }, [])
 
   return (
@@ -25,7 +30,7 @@ const TaskPage = () => {
       <AppContainer>
         <div className="tasks-container">
           {
-            tasks?.map(task => <Tasks {...task} handleTaskStatus={handleTaskStatus} key={task._id} />)
+            tasks?.map(task => <Tasks {...task} handleTaskStatus={handleTaskStatus} handleRemoveTask={handleRemoveTask} key={task._id} />)
           }
         </div>
       </AppContainer>
