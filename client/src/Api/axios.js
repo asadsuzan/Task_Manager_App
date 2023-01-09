@@ -1,7 +1,7 @@
 
 import axios from 'axios'
 import { displayLoader, hideLoader } from '../redux/slices/settingSlice'
-import { setInprogress, setMyDay, setNew, setTasks } from '../redux/slices/taskSlice'
+import { setCompleted, setInprogress, setMyDay, setNew, setTasks } from '../redux/slices/taskSlice'
 import store from '../redux/store/store'
 import { getToken } from '../utility/localDb'
 
@@ -94,6 +94,53 @@ export const reqToGetTaskByCate = (category) => {
         store.dispatch(setInprogress(data))
       }
 
+    } else {
+      alert('something went wrong')
+    }
+  }).catch(err => {
+    store.dispatch(hideLoader())
+    alert(err)
+    console.log(err)
+  })
+
+
+}
+export const reqToUpdateTaskStatus = (id, status) => {
+  store.dispatch(displayLoader())
+  const url = baseUrl + `task/${id}/${status}`
+  const config = {
+    headers: {
+      token: getToken()
+    }
+  };
+  return axios.get(url, config).then(res => {
+    store.dispatch(hideLoader())
+    if (res.status === 202) {
+      return true
+    } else {
+      return false
+    }
+  }).catch(err => {
+    store.dispatch(hideLoader())
+    alert(err)
+    console.log(err)
+  })
+
+
+}
+export const reqToViewCompleted = () => {
+  store.dispatch(displayLoader())
+  const url = baseUrl + 'task/completed'
+  const config = {
+    headers: {
+      token: getToken()
+    }
+  };
+  return axios.get(url, config).then(res => {
+    store.dispatch(hideLoader())
+    if (res.status === 200) {
+      const { data } = res.data
+      store.dispatch(setCompleted(data))
     } else {
       alert('something went wrong')
     }

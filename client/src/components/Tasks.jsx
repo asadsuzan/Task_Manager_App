@@ -2,23 +2,17 @@ import React from 'react'
 import { MdRadioButtonUnchecked } from 'react-icons/md'
 import { AiOutlineStar } from 'react-icons/ai'
 import { TbTrash } from 'react-icons/tb'
-import { useEffect } from 'react'
-import { reqToGetTaskByCate } from '../Api/axios'
-import { useSelector } from 'react-redux'
+import { BsPatchCheckFill } from 'react-icons/bs'
 
-const Tasks = () => {
-  const tasks = useSelector(state => state.tasks.new)
-  console.log(tasks)
 
-  useEffect(() => {
-    reqToGetTaskByCate('none')
-  }, [])
+
+const Tasks = ({ TaskName, TaskNote, TaskCategory, handleTaskStatus, _id, IsTaskCompleted }) => {
 
   return (
     <div className='task-card p-3'>
       <div className="task-content">
-        <h5>todo application</h5>
-        <p>complete the all routes for app just today </p>
+        <h5>{TaskName}</h5>
+        <p>{TaskNote}</p>
       </div>
       <div className="task-actions d-flex align-items-center justify-content-between">
         <div className="left-side d-flex align-items-center">
@@ -33,12 +27,15 @@ const Tasks = () => {
               <option value="my-day">My Day</option>
               <option value="inprogress">Inprogress</option>
             </select>
-            <span>Task</span>
+            <span>{TaskCategory}</span>
           </div>
         </div>
         <div className="right-side d-flex align-items-center">
-          <div className="isCompleted">
-            <MdRadioButtonUnchecked size={'20px'} color="green" />
+          <div className="isCompleted" onClick={() => handleTaskStatus(_id)}>
+            {
+              IsTaskCompleted ? <BsPatchCheckFill size={'20px'} color="green" /> : <MdRadioButtonUnchecked size={'20px'} color="green" />
+            }
+
           </div>
           <div className='isImportant'>
             <AiOutlineStar size={'20px'} color="orange" />

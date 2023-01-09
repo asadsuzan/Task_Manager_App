@@ -58,16 +58,32 @@ exports.viewTaskByCat = async (req, res) => {
   }
 
 }
+// view completed  task 
+exports.viewCompleted = async (req, res) => {
+  const { email } = req.headers
+  try {
+    const data = await taskModel.find({ TaskCreatorId: email, IsTaskCompleted: true, })
+    res.status(200).json({ status: "success", data })
+  } catch (error) {
+    res.status(400).json({ status: "fail", massage: error })
+  }
+
+}
 
 // update task status 
 exports.updateTaskStatus = async (req, res) => {
   const { email } = req.headers
-  const { id, status } = req.params
+  let { id, status } = req.params
+
+  status === 'true' ? status = true : status = false
+  console.log(id, status);
   try {
-    const data = await taskModel.updateOne({ TaskCreatorId: email, _id: id, IsTaskCompleted: status, CompletedDate: status == 'true' ? Date.now() : null })
-    res.status(200).json({ status: "success", data })
+    const data = await taskModel.updateOne({ TaskCreatorId: email, _id: id }, { $set: { IsTaskCompleted: status, CompletedDate: status == true ? Date.now() : null } })
+    res.status(202).json({ status: "success", data })
   } catch (error) {
-    res.status(400).json({ status: "fail", massage: error })
+    console.log(error);
+    res.status(400).json({ status: "fail", massage: 'kisu buji nai' })
+
   }
 
 }
