@@ -51,7 +51,7 @@ exports.viewTaskByCat = async (req, res) => {
     if (data.length) {
       res.status(200).json({ status: "success", data })
     } else {
-      res.status(200).json({ status: "success", data: "no task yet" })
+      res.status(200).json({ status: "success", data: [] })
     }
   } catch (error) {
     res.status(400).json({ status: "fail", massage: error })

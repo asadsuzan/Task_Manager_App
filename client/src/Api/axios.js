@@ -1,6 +1,7 @@
 
 import axios from 'axios'
 import { displayLoader, hideLoader } from '../redux/slices/settingSlice'
+import { setInprogress, setMyDay, setNew, setTasks } from '../redux/slices/taskSlice'
 import store from '../redux/store/store'
 import { getToken } from '../utility/localDb'
 
@@ -73,6 +74,34 @@ export const reqToSaveTask = (task) => {
 
 }
 
-// export const reqToGetTaskByCate=()=>{
-   
-// }
+export const reqToGetTaskByCate = (category) => {
+  store.dispatch(displayLoader())
+  const url = baseUrl + '/task/category/' + category
+  const config = {
+    headers: {
+      token: getToken()
+    }
+  };
+  return axios.get(url, config).then(res => {
+    store.dispatch(hideLoader())
+    if (res.status === 200) {
+      const { data } = res.data
+      if (category === 'none') {
+        store.dispatch(setNew(data))
+      } else if (category === 'my-day') {
+        store.dispatch(setMyDay(data))
+      } else if (category === 'inprogress') {
+        store.dispatch(setInprogress(data))
+      }
+
+    } else {
+      alert('something went wrong')
+    }
+  }).catch(err => {
+    store.dispatch(hideLoader())
+    alert(err)
+    console.log(err)
+  })
+
+
+}

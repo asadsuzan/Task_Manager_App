@@ -2,8 +2,18 @@ import React from 'react'
 import { MdRadioButtonUnchecked } from 'react-icons/md'
 import { AiOutlineStar } from 'react-icons/ai'
 import { TbTrash } from 'react-icons/tb'
+import { useEffect } from 'react'
+import { reqToGetTaskByCate } from '../Api/axios'
+import { useSelector } from 'react-redux'
 
 const Tasks = () => {
+  const tasks = useSelector(state => state.tasks.new)
+  console.log(tasks)
+
+  useEffect(() => {
+    reqToGetTaskByCate('none')
+  }, [])
+
   return (
     <div className='task-card p-3'>
       <div className="task-content">
@@ -21,10 +31,9 @@ const Tasks = () => {
             <select id='category' required>
               <option value="none">Task</option>
               <option value="my-day">My Day</option>
-              <option value="important">Important</option>
               <option value="inprogress">Inprogress</option>
             </select>
-            <span>Important</span>
+            <span>Task</span>
           </div>
         </div>
         <div className="right-side d-flex align-items-center">
